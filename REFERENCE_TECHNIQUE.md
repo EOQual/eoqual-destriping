@@ -75,19 +75,20 @@ exclusion des colonnes à plus de 4σ), puis soustraction.
 l'échelle spatiale de la rayure — pas de règle de calibration automatique
 fournie ; à ajuster par image ou par capteur.
 
-### 2.4 `munch` — ondelettes + FFT combiné (wrapper `rmstripes`)
+### 2.4 `munch` — ondelettes + FFT combiné
 
-**Fichier** : `backends/munch/wrapper.py`
+**Fichier** : `backends/munch/wrapper.py`, appelant le code vendored
+`backends/munch/vendor/stripes.py` (copie verbatim de `rmstripes`, MIT —
+voir `THIRD_PARTY_LICENSES.md` pour la raison du vendoring).
 **Référence** : Münch et al. (2009), *Optics Express* 17(10), 8567-8591.
 
-Fine couche autour du paquet tiers `rmstripes` (MIT). Décomposition en
-ondelettes (`wavelet`, niveau `decomp_level`), filtrage gaussien
-(`sigma`) de chaque sous-bande de détails dans le domaine de Fourier,
-reconstruction.
+Décomposition en ondelettes (`wavelet`, niveau `decomp_level`), filtrage
+gaussien (`sigma`) de chaque sous-bande de détails dans le domaine de
+Fourier, reconstruction.
 
-**Limites** : dépend intégralement de `rmstripes` — aucune logique
-propre au-delà du passage de paramètres. Toute divergence de comportement
-doit être remontée en amont (DHI-GRAS) autant qu'ici.
+**Limites** : aucune logique propre au-delà du passage de paramètres à
+l'algorithme d'origine — toute divergence de comportement doit être
+comparée à `rmstripes` en amont (DHI-GRAS, non maintenu depuis 2018).
 
 ### 2.5 `swaney` — filtre de streaks en ondelettes (wrapper `pystripe`)
 

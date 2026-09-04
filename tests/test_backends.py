@@ -34,13 +34,15 @@ def striped_image() -> np.ndarray:
 def test_socle_method_smoke(striped_image, method):
     """Chaque méthode du socle s'exécute et renvoie une image de même forme."""
     cfg = METHODS_CONFIGS[method]
-    if method == "munch":
-        pytest.importorskip("rmstripes")
     if method == "swaney":
         pytest.importorskip("pystripe")
 
     input_image = striped_image.T if cfg["orientation"] == "horizontal" else striped_image
-    result = destripe(input_image, method=method)
+    # munch (db10, decomp_level=6 par défaut) a besoin d'une image bien plus
+    # grande que 128x128 pour ne pas avertir sur les effets de bord PyWavelets
+    # — non représentatif d'un bug, juste de la taille du fixture de test.
+    kwargs = {"decomp_level": 2} if method == "munch" else {}
+    result = destripe(input_image, method=method, **kwargs)
 
     assert result.shape == input_image.shape
     assert np.all(np.isfinite(result))

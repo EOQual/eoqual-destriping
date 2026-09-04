@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Münch et al. — destriping combiné ondelettes / FFT (wrapper).
+Münch et al. — destriping combiné ondelettes / FFT.
 
-Fine couche autour du paquet tiers ``rmstripes`` :
-https://github.com/DHI-GRAS/rmstripes (MIT) — voir ``THIRD_PARTY_LICENSES.md``.
+Appelle une copie vendored, non modifiée, de ``rmstripes/stripes.py``
+(https://github.com/DHI-GRAS/rmstripes, MIT) — voir
+``backends/munch/vendor/NOTICE.md`` pour la provenance exacte et la
+raison du vendoring (packaging amont incompatible Python 3.12, pas un
+problème de licence), et ``THIRD_PARTY_LICENSES.md`` pour l'entrée
+correspondante dans l'audit des licences.
 
 Référence :
     Münch, B., Trtik, P., Marone, F., Stampanoni, M. (2009). "Stripe and
@@ -14,6 +18,8 @@ Référence :
 from __future__ import annotations
 
 import numpy as np
+
+from .vendor.stripes import remove_stripes
 
 __all__ = ["munch_destripe"]
 
@@ -43,22 +49,5 @@ def munch_destripe(
     -------
     np.ndarray
         Image destripée, même forme que l'entrée.
-
-    Raises
-    ------
-    ImportError
-        Si ``rmstripes`` n'est pas installé — voir
-        ``pip install "eoqual-destriping"`` (dépendance du socle) ou
-        ``pip install rmstripes`` directement.
     """
-    try:
-        from rmstripes.stripes import remove_stripes
-    except ImportError as exc:
-        raise ImportError(
-            "munch_destripe nécessite le paquet 'rmstripes' "
-            "(https://github.com/DHI-GRAS/rmstripes, MIT). "
-            "Installer avec : pip install "
-            "'rmstripes @ git+https://github.com/DHI-GRAS/rmstripes.git'"
-        ) from exc
-
     return remove_stripes(image, decomp_level=decomp_level, wavelet=wavelet, sigma=sigma)

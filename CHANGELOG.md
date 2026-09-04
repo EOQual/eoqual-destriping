@@ -6,8 +6,8 @@
 
 :   -   Première version publique.
     -   **9 méthodes** : `auto_egal`, `rogass`, `pande_chhetri`, `lloyd`,
-        `munch` (`rmstripes`), `swaney` (`pystripe`), `uvdm` dans le
-        socle (MIT/dépendances MIT) ; `guan` (réseau DWSRN, extra
+        `munch` (code vendored, MIT), `swaney` (`pystripe`), `uvdm` dans
+        le socle (MIT/dépendances MIT) ; `guan` (réseau DWSRN, extra
         `deep`) et `vsnr` (extra `vsnr`, **AGPL-3.0** — jamais installé
         par défaut) en extras optionnels.
     -   Registre central unique (`config.py::METHODS_CONFIGS`) et

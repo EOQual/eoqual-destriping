@@ -32,7 +32,9 @@ pip install git+https://github.com/EOQual/eoqual-destriping.git
 Installe tout ce qui est nécessaire pour 7 des 9 méthodes du catalogue :
 `auto_egal`, `rogass`, `pande_chhetri`, `lloyd`, `munch`, `swaney`, `uvdm`
 — numpy, scipy, opencv-python, PyWavelets, matplotlib, rich, ainsi que
-`rmstripes` et `pystripe` (voir `pyproject.toml`).
+`pystripe` (voir `pyproject.toml`). `munch` n'ajoute aucune dépendance :
+son code est inclus directement dans le paquet (voir
+`THIRD_PARTY_LICENSES.md`).
 
 ### 2. Extras optionnels
 

@@ -41,11 +41,22 @@ défaut : `guan` (Apache-2.0 — permissif mais dépendance lourde) et `vsnr`
 | `pande_chhetri` | `backends/pande_chhetri/wavelet_freq.py` | Réimplémentation depuis les équations de Pande-Chhetri & Abd-Elrahman (2011) — aucun code tiers repris | MIT (auteur du dépôt) |
 | `lloyd` | `backends/lloyd/super_gaussian.py` | Réimplémentation depuis Lloyd & Bouali (2023) — aucun code tiers repris | MIT (auteur du dépôt) |
 | `uvdm` | `backends/uvdm/bouali.py` | Implémentation Python originale de l'algorithme de Bouali & Ladjal (2011), par l'auteur de ce dépôt | MIT (auteur du dépôt) |
-| `munch` | `backends/munch/wrapper.py` (dépendance `rmstripes`) | https://github.com/DHI-GRAS/rmstripes | **MIT** — vérifié (`LICENSE`, copyright DHI GRAS 2018) |
+| `munch` | `backends/munch/vendor/stripes.py` (**vendored**, copie verbatim) | https://github.com/DHI-GRAS/rmstripes | **MIT** — vérifié (`LICENSE`, copyright DHI GRAS 2018) — voir `backends/munch/vendor/NOTICE.md` |
 | `swaney` | `backends/swaney/wrapper.py` (dépendance `pystripe`) | https://github.com/LifeCanvas-Technologies/pystripe (fork actif du dépôt historique `chunglabmit/pystripe`, publié sur PyPI) | **MIT** — vérifié (API GitHub, `license.spdx_id = "mit"`) |
 
 Dépendances du socle (numpy, scipy, opencv-python, PyWavelets, matplotlib,
 rich) : toutes BSD/MIT/Apache-2.0.
+
+**Pourquoi `munch` est vendored plutôt que dépendance externe** :
+`rmstripes` n'est pas publié sur PyPI, et son fichier de packaging
+auto-généré (`versioneer.py`, non modifié depuis 2018) appelle
+`configparser.SafeConfigParser()`, retiré de Python 3.12 — son
+installation échoue donc sur Python 3.12, indépendamment de son code
+(qui, lui, fonctionne sans modification). Le fichier concerné
+(`stripes.py`, ~50 lignes, aucune dépendance hors numpy/PyWavelets déjà
+dans le socle) est inclus verbatim plutôt que relégué en extra pour ce
+seul problème de packaging amont — voir
+`backends/munch/vendor/NOTICE.md`.
 
 ### 2.2 Extras optionnels — licences non permissives (🟡)
 

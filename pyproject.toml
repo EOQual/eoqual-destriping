@@ -16,6 +16,8 @@ packages = [{include = "eoqual/destriping", from = "src"}]
 include = [
     "src/eoqual/destriping/backends/guan/weights/weight.hdf5",
     "src/eoqual/destriping/backends/guan/weights/NOTICE.md",
+    "src/eoqual/destriping/backends/munch/vendor/LICENSE",
+    "src/eoqual/destriping/backends/munch/vendor/NOTICE.md",
 ]
 exclude = [
     "**/__pycache__",
@@ -30,11 +32,12 @@ opencv-python = "*"
 pywavelets = "*"
 matplotlib = "^3.5.0"
 rich = "*"
-# rmstripes (Münch et al.) : non publié sur PyPI, MIT — voir
-# THIRD_PARTY_LICENSES.md.
-rmstripes = {git = "https://github.com/DHI-GRAS/rmstripes.git"}
 # pystripe (Swaney et al.) : fork actif publié sur PyPI, MIT.
 pystripe = "*"
+# munch_destripe (Münch et al.) n'ajoute aucune dépendance : code vendored
+# dans backends/munch/vendor/ (rmstripes n'est pas publié sur PyPI et son
+# packaging amont, non maintenu, casse sur Python 3.12 — voir
+# backends/munch/vendor/NOTICE.md et THIRD_PARTY_LICENSES.md).
 
 # --- Extra "deep" (Guan et al., réseau DWSRN) ---
 # Poids Apache-2.0 (jtguan) — voir backends/guan/weights/NOTICE.md.
