@@ -31,10 +31,10 @@ pip install git+https://github.com/EOQual/eoqual-destriping.git
 
 Installe tout ce qui est nécessaire pour 7 des 9 méthodes du catalogue :
 `auto_egal`, `rogass`, `pande_chhetri`, `lloyd`, `munch`, `swaney`, `uvdm`
-— numpy, scipy, opencv-python, PyWavelets, matplotlib, rich, ainsi que
-`pystripe` (voir `pyproject.toml`). `munch` n'ajoute aucune dépendance :
-son code est inclus directement dans le paquet (voir
-`THIRD_PARTY_LICENSES.md`).
+— numpy, scipy, opencv-python, scikit-image, PyWavelets, matplotlib,
+rich (voir `pyproject.toml`). `munch` et `swaney` n'ajoutent aucune
+dépendance externe supplémentaire : leur code est inclus directement
+dans le paquet (voir `THIRD_PARTY_LICENSES.md`).
 
 ### 2. Extras optionnels
 
@@ -118,8 +118,9 @@ identifiée) : voir
 
 **Le code propre à eoqual-destriping est sous licence MIT** (`license.txt`).
 
-Les 7 méthodes du socle (installées par défaut) sont MIT ou reposent sur
-des dépendances MIT (`rmstripes`, `pystripe`). Les 2 méthodes en extra
+Les 7 méthodes du socle (installées par défaut) sont MIT, y compris le
+code vendored de `munch` et `swaney` (`rmstripes`, `pystripe`). Les 2
+méthodes en extra
 optionnel restent sous leur licence d'origine : `guan` (Apache-2.0,
 permissif) et `vsnr` (**AGPL-3.0** — jamais installé par défaut, lire
 l'avertissement avant d'ajouter cet extra). Inventaire complet, fichier

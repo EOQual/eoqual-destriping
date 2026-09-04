@@ -18,6 +18,8 @@ include = [
     "src/eoqual/destriping/backends/guan/weights/NOTICE.md",
     "src/eoqual/destriping/backends/munch/vendor/LICENSE",
     "src/eoqual/destriping/backends/munch/vendor/NOTICE.md",
+    "src/eoqual/destriping/backends/swaney/vendor/LICENSE",
+    "src/eoqual/destriping/backends/swaney/vendor/NOTICE.md",
 ]
 exclude = [
     "**/__pycache__",
@@ -30,14 +32,19 @@ numpy = "*"
 scipy = "*"
 opencv-python = "*"
 pywavelets = "*"
+# scikit-image : uniquement threshold_otsu, requis par le code vendored
+# de swaney_destripe (voir ci-dessous).
+scikit-image = "*"
 matplotlib = "^3.5.0"
 rich = "*"
-# pystripe (Swaney et al.) : fork actif publié sur PyPI, MIT.
-pystripe = "*"
-# munch_destripe (Münch et al.) n'ajoute aucune dépendance : code vendored
-# dans backends/munch/vendor/ (rmstripes n'est pas publié sur PyPI et son
-# packaging amont, non maintenu, casse sur Python 3.12 — voir
-# backends/munch/vendor/NOTICE.md et THIRD_PARTY_LICENSES.md).
+# munch_destripe (Münch et al.) et swaney_destripe (Swaney et al.)
+# n'ajoutent aucune dépendance externe : code vendored dans
+# backends/munch/vendor/ et backends/swaney/vendor/ — rmstripes n'est pas
+# publié sur PyPI et son packaging amont, non maintenu, casse sur Python
+# 3.12 ; pystripe fige des versions exactes (numpy==1.19.5...) qui ne se
+# compilent plus du tout sur Python 3.12 et entrent en conflit avec le
+# reste du projet. Voir NOTICE.md dans chaque dossier vendor/ et
+# THIRD_PARTY_LICENSES.md.
 
 # --- Extra "deep" (Guan et al., réseau DWSRN) ---
 # Poids Apache-2.0 (jtguan) — voir backends/guan/weights/NOTICE.md.
@@ -66,7 +73,6 @@ black = "^23.3.0"
 coverage = "^6.5.0"
 pylint = "*"
 pytest = "<9"
-scikit-image = "*"
 
 [build-system]
 requires = ["poetry-core"]

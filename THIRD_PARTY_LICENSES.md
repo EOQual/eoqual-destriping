@@ -42,21 +42,35 @@ défaut : `guan` (Apache-2.0 — permissif mais dépendance lourde) et `vsnr`
 | `lloyd` | `backends/lloyd/super_gaussian.py` | Réimplémentation depuis Lloyd & Bouali (2023) — aucun code tiers repris | MIT (auteur du dépôt) |
 | `uvdm` | `backends/uvdm/bouali.py` | Implémentation Python originale de l'algorithme de Bouali & Ladjal (2011), par l'auteur de ce dépôt | MIT (auteur du dépôt) |
 | `munch` | `backends/munch/vendor/stripes.py` (**vendored**, copie verbatim) | https://github.com/DHI-GRAS/rmstripes | **MIT** — vérifié (`LICENSE`, copyright DHI GRAS 2018) — voir `backends/munch/vendor/NOTICE.md` |
-| `swaney` | `backends/swaney/wrapper.py` (dépendance `pystripe`) | https://github.com/LifeCanvas-Technologies/pystripe (fork actif du dépôt historique `chunglabmit/pystripe`, publié sur PyPI) | **MIT** — vérifié (API GitHub, `license.spdx_id = "mit"`) |
+| `swaney` | `backends/swaney/vendor/core.py` (**vendored**, extrait verbatim) | https://github.com/LifeCanvas-Technologies/pystripe | **MIT** — vérifié (`LICENSE`, copyright Chung Lab 2018) — voir `backends/swaney/vendor/NOTICE.md` |
 
-Dépendances du socle (numpy, scipy, opencv-python, PyWavelets, matplotlib,
-rich) : toutes BSD/MIT/Apache-2.0.
+Dépendances du socle (numpy, scipy, opencv-python, PyWavelets,
+scikit-image, matplotlib, rich) : toutes BSD/MIT/Apache-2.0.
 
-**Pourquoi `munch` est vendored plutôt que dépendance externe** :
-`rmstripes` n'est pas publié sur PyPI, et son fichier de packaging
-auto-généré (`versioneer.py`, non modifié depuis 2018) appelle
-`configparser.SafeConfigParser()`, retiré de Python 3.12 — son
-installation échoue donc sur Python 3.12, indépendamment de son code
-(qui, lui, fonctionne sans modification). Le fichier concerné
-(`stripes.py`, ~50 lignes, aucune dépendance hors numpy/PyWavelets déjà
-dans le socle) est inclus verbatim plutôt que relégué en extra pour ce
-seul problème de packaging amont — voir
-`backends/munch/vendor/NOTICE.md`.
+**Pourquoi `munch` et `swaney` sont vendored plutôt que dépendances
+externes** :
+
+- `rmstripes` (`munch`) n'est pas publié sur PyPI, et son fichier de
+  packaging auto-généré (`versioneer.py`, non modifié depuis 2018)
+  appelle `configparser.SafeConfigParser()`, retiré de Python 3.12 — son
+  installation échoue sur Python 3.12, indépendamment de son code (qui,
+  lui, fonctionne sans modification). Fichier concerné : `stripes.py`,
+  ~50 lignes, aucune dépendance hors numpy/PyWavelets déjà dans le
+  socle.
+- `pystripe` (`swaney`) fige des versions exactes et anciennes de ses
+  propres dépendances (`numpy==1.19.5`, `scipy==1.5.4`,
+  `scikit-image==0.17.2`...) qui ne se compilent plus du tout sur Python
+  3.12 et entrent de toute façon en conflit avec les versions utilisées
+  par le reste d'`eoqual-destriping` ; `import pystripe` charge en plus
+  inconditionnellement `dcimg`/`tifffile`/`imageio`/`tqdm` (son I/O
+  fichier et son traitement par lot), inutiles pour `filter_streaks`
+  seul. Extrait vendored : le bloc autonome `wavedec`..`filter_streaks`
+  de `pystripe/core.py` (~340 lignes), qui ne dépend que de
+  numpy/scipy/scikit-image/PyWavelets, déjà dans le socle.
+
+Dans les deux cas, le code lui-même n'a aucun problème de licence — seul
+le packaging/les épinglages de versions amont sont en cause. Voir
+`backends/munch/vendor/NOTICE.md` et `backends/swaney/vendor/NOTICE.md`.
 
 ### 2.2 Extras optionnels — licences non permissives (🟡)
 

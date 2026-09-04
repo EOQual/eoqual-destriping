@@ -6,10 +6,10 @@
 
 :   -   Première version publique.
     -   **9 méthodes** : `auto_egal`, `rogass`, `pande_chhetri`, `lloyd`,
-        `munch` (code vendored, MIT), `swaney` (`pystripe`), `uvdm` dans
-        le socle (MIT/dépendances MIT) ; `guan` (réseau DWSRN, extra
-        `deep`) et `vsnr` (extra `vsnr`, **AGPL-3.0** — jamais installé
-        par défaut) en extras optionnels.
+        `munch`, `swaney`, `uvdm` dans le socle (MIT — `munch` et
+        `swaney` par code vendored, sans dépendance externe) ; `guan`
+        (réseau DWSRN, extra `deep`) et `vsnr` (extra `vsnr`,
+        **AGPL-3.0** — jamais installé par défaut) en extras optionnels.
     -   Registre central unique (`config.py::METHODS_CONFIGS`) et
         dispatcher générique `eoqual.destriping.runner.destripe(image,
         method=...)`, en plus de l'import direct de chaque fonction.

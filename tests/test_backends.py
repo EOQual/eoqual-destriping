@@ -34,8 +34,6 @@ def striped_image() -> np.ndarray:
 def test_socle_method_smoke(striped_image, method):
     """Chaque méthode du socle s'exécute et renvoie une image de même forme."""
     cfg = METHODS_CONFIGS[method]
-    if method == "swaney":
-        pytest.importorskip("pystripe")
 
     input_image = striped_image.T if cfg["orientation"] == "horizontal" else striped_image
     # munch (db10, decomp_level=6 par défaut) a besoin d'une image bien plus

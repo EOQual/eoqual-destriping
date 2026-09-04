@@ -193,7 +193,18 @@ visuelle sur une image synthétique à rayures connues.
 `examples/modis_real_example.py` va plus loin : `tests/images/MODIS_noisy.tif`
 dispose d'une vraie référence (`MODIS_ref.tif`, CC BY 4.0), ce qui permet
 un RMSE avant/après par méthode plutôt qu'une comparaison seulement
-visuelle. Sur cette image, `rogass`, `pande_chhetri`, `lloyd` et `uvdm`
-réduisent le RMSE (+20 à +30 %) ; `auto_egal` le dégrade fortement —
-confirmation empirique de sa limite documentée en §2.7 (méthode
-statistique globale, mal adaptée à une scène hétérogène ligne à ligne).
+visuelle. Sur cette image (400×400), avec les paramètres par défaut de
+chaque méthode :
+
+- `uvdm`, `rogass`, `pande_chhetri` réduisent le RMSE (+20 à +30 %) ;
+- `lloyd` est quasi neutre (+0.6 %) ;
+- `auto_egal`, `munch` et `swaney` **dégradent** le RMSE sur cette image
+  avec leurs paramètres par défaut — pas un bug, mais confirmation que
+  ces défauts ne sont pas calibrés pour toute taille/nature d'image :
+  `auto_egal` est une méthode statistique globale mal adaptée à une
+  scène hétérogène ligne à ligne (limite documentée en §2.7) ; `munch`
+  (`decomp_level=6` par défaut) est bien trop agressif pour une image
+  de cette taille (avertissement PyWavelets à l'exécution) ; `swaney`
+  cible nativement des images de microscopie à une autre échelle que le
+  télédétection. Les trois nécessitent un réglage des paramètres selon
+  l'image traitée pour cet usage.

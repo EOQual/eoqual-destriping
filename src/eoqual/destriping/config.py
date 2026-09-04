@@ -42,13 +42,13 @@ METHODS_CONFIGS: OrderedDict = OrderedDict(
         "munch": {
             "orientation": "vertical",
             "extra": None,
-            "license": "MIT (rmstripes, DHI-GRAS)",
+            "license": "MIT (rmstripes, DHI-GRAS — vendored)",
             "reference": "Münch et al. (2009), Optics Express 17(10), 8567-8591",
         },
         "swaney": {
             "orientation": "vertical",
             "extra": None,
-            "license": "MIT (pystripe, LifeCanvas-Technologies)",
+            "license": "MIT (pystripe, LifeCanvas-Technologies — vendored)",
             "reference": "Swaney et al. (2019), bioRxiv 576595",
         },
         "uvdm": {
