@@ -1,0 +1,70 @@
+# Documentation de poetry: https://python-poetry.org/docs/pyproject/
+
+[tool.poetry]
+name = "eoqual-destriping"
+version = "0.1.0"
+description = "Collection of Earth observation image destriping methods"
+authors = ["Olivier Amram <olivier.amram@free.fr>"]
+maintainers = [
+    "Olivier Amram <olivier.amram@free.fr>"
+]
+repository = "https://github.com/EOQual/eoqual-destriping.git"
+readme = "README.md"
+license = "MIT"
+keywords = ["destriping", "remote-sensing", "image", "earth-observation"]
+packages = [{include = "eoqual/destriping", from = "src"}]
+include = [
+    "src/eoqual/destriping/backends/guan/weights/weight.hdf5",
+    "src/eoqual/destriping/backends/guan/weights/NOTICE.md",
+]
+exclude = [
+    "**/__pycache__",
+    "**/.DS_Store",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+numpy = "*"
+scipy = "*"
+opencv-python = "*"
+pywavelets = "*"
+matplotlib = "^3.5.0"
+rich = "*"
+# rmstripes (Münch et al.) : non publié sur PyPI, MIT — voir
+# THIRD_PARTY_LICENSES.md.
+rmstripes = {git = "https://github.com/DHI-GRAS/rmstripes.git"}
+# pystripe (Swaney et al.) : fork actif publié sur PyPI, MIT.
+pystripe = "*"
+
+# --- Extra "deep" (Guan et al., réseau DWSRN) ---
+# Poids Apache-2.0 (jtguan) — voir backends/guan/weights/NOTICE.md.
+# Non installé par défaut : dépendance lourde (TensorFlow).
+keras = {version = ">=2.11.0", optional = true}
+tensorflow = {version = "*", optional = true}
+
+# --- Extra "vsnr" (Fehrenbach, Weiss & Lorenzo) ---
+# pyvsnr est en AGPL-3.0 (CEA-MetroCarac) — voir l'avertissement dans
+# THIRD_PARTY_LICENSES.md avant d'installer cet extra.
+pyvsnr = {version = "*", optional = true}
+
+[tool.poetry.extras]
+deep = ["keras", "tensorflow"]
+vsnr = ["pyvsnr"]
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "*"
+sphinx-rtd-theme = "*"
+sphinx-autoapi = "*"
+
+[tool.poetry.group.dev.dependencies]
+poetry = "^2.1.1"
+ipython = "^8.8.0"
+black = "^23.3.0"
+coverage = "^6.5.0"
+pylint = "*"
+pytest = "<9"
+scikit-image = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
