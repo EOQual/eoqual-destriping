@@ -37,7 +37,7 @@ METHODS_CONFIGS: OrderedDict = OrderedDict(
             "orientation": "vertical",
             "extra": None,
             "license": "MIT",
-            "reference": "Lloyd & Bouali (2023), Applied Optics",
+            "reference": "Lloyd, Bouali, Abela, Farrugia & Valentino (2020), Proc. SPIE 11533, 1153306",
         },
         "munch": {
             "orientation": "vertical",

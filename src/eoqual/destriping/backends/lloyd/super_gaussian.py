@@ -6,8 +6,10 @@ domaine de Fourier, avec raffinement spatial optionnel.
 
 Réimplémentation depuis les équations publiées (pas de code tiers repris) :
 
-    Lloyd, S., Bouali, M. (2023). "Efficient destriping of remote sensing
-    images using an oriented super-Gaussian filter." Applied Optics.
+    Lloyd, D. T., Bouali, M., Abela, A., Farrugia, R. A., Valentino, G. (2020).
+    "Efficient destriping of remote sensing images using an oriented
+    super-Gaussian filter." Image and Signal Processing for Remote Sensing
+    XXVI, Proc. SPIE 11533, 1153306. doi:10.1117/12.2574449.
     Jeu de données associé : Mendeley Data,
     https://data.mendeley.com/ — voir ``tests/images/`` pour un extrait.
 

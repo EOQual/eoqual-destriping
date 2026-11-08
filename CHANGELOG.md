@@ -7,6 +7,9 @@ Non publié
 :   -   Intégration continue des tests (`.github/workflows/tests.yml`).
     -   `license.txt` : titulaire des droits (Olivier Amram) au lieu du
         nom du module.
+    -   Référence de la méthode `lloyd` corrigée : acte SPIE 11533,
+        1153306 (2020), Lloyd, Bouali, Abela, Farrugia et Valentino, et
+        non *Applied Optics* (2023).
 
 0.1.0 (2026-09-04)
 

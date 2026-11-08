@@ -151,4 +151,4 @@ proposer une méthode, ou soumettre une implémentation.
 
 Jeu de données de test (`tests/images/`, extrait) :
 "Efficient destriping of remote sensing images using an oriented
-super-Gaussian filter" — dataset, Mendeley Data (Lloyd & Bouali).
+super-Gaussian filter" — dataset, Mendeley Data (Lloyd et al., Proc. SPIE 11533, 2020).

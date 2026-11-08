@@ -62,7 +62,10 @@ d'échantillons de rayure.
 ### 2.3 `lloyd` — filtre super-gaussien orienté
 
 **Fichier** : `backends/lloyd/super_gaussian.py`
-**Référence** : Lloyd & Bouali (2023), *Applied Optics*.
+**Référence** : Lloyd, D. T., Bouali, M., Abela, A., Farrugia, R. A., Valentino, G. (2020).
+« Efficient destriping of remote sensing images using an oriented super-Gaussian filter »,
+*Image and Signal Processing for Remote Sensing XXVI*, Proc. SPIE 11533, 1153306.
+doi:10.1117/12.2574449.
 
 Un filtre super-gaussien orienté à 90° (pour des rayures verticales)
 atténue la bande spectrale étroite portée par la rayure dans le domaine

@@ -39,7 +39,7 @@ défaut : `guan` (Apache-2.0 — permissif mais dépendance lourde) et `vsnr`
 | `auto_egal` | `backends/auto_egal/moment_matching.py` | Réimplémentation depuis la description de la technique dans Moik (1980), NASA SP-341, p. 87 — aucun code tiers repris | MIT (auteur du dépôt) |
 | `rogass` | `backends/rogass/gradient.py` | Réimplémentation depuis les équations de Rogass et al. (2014) — aucun code tiers repris | MIT (auteur du dépôt) |
 | `pande_chhetri` | `backends/pande_chhetri/wavelet_freq.py` | Réimplémentation depuis les équations de Pande-Chhetri & Abd-Elrahman (2011) — aucun code tiers repris | MIT (auteur du dépôt) |
-| `lloyd` | `backends/lloyd/super_gaussian.py` | Réimplémentation depuis Lloyd & Bouali (2023) — aucun code tiers repris | MIT (auteur du dépôt) |
+| `lloyd` | `backends/lloyd/super_gaussian.py` | Réimplémentation depuis Lloyd et al. (2020, Proc. SPIE 11533) — aucun code tiers repris | MIT (auteur du dépôt) |
 | `uvdm` | `backends/uvdm/bouali.py` | Implémentation Python originale de l'algorithme de Bouali & Ladjal (2011), par l'auteur de ce dépôt | MIT (auteur du dépôt) |
 | `munch` | `backends/munch/vendor/stripes.py` (**vendored**, copie verbatim) | https://github.com/DHI-GRAS/rmstripes | **MIT** — vérifié (`LICENSE`, copyright DHI GRAS 2018) — voir `backends/munch/vendor/NOTICE.md` |
 | `swaney` | `backends/swaney/vendor/core.py` (**vendored**, extrait verbatim) | https://github.com/LifeCanvas-Technologies/pystripe | **MIT** — vérifié (`LICENSE`, copyright Chung Lab 2018) — voir `backends/swaney/vendor/NOTICE.md` |

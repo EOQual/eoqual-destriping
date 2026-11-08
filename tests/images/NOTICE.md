@@ -5,7 +5,8 @@
 
 > Lloyd, D., Bouali, M., Abela, A., Farrugia, R., Valentino, G. (2020).
 > "Efficient destriping of remote sensing images using an oriented
-> super-Gaussian filter." Applied Optics.
+> super-Gaussian filter." Image and Signal Processing for Remote Sensing XXVI,
+> Proc. SPIE 11533, 1153306. doi:10.1117/12.2574449.
 > Dataset : Mendeley Data, https://data.mendeley.com/datasets/zh5jym6wwn/1
 
 **Licence : CC BY 4.0** (Creative Commons Attribution 4.0) — vérifiée sur
