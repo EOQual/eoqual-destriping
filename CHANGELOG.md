@@ -2,7 +2,7 @@
 
 ## Version History
 
-Non publié
+0.1.1 (2026-11-08)
 
 :   -   Intégration continue des tests (`.github/workflows/tests.yml`).
     -   `license.txt` : titulaire des droits (Olivier Amram) au lieu du

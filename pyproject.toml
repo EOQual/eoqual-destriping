@@ -2,7 +2,7 @@
 
 [tool.poetry]
 name = "eoqual-destriping"
-version = "0.1.0"
+version = "0.1.1"
 description = "Collection of Earth observation image destriping methods"
 authors = ["Olivier Amram <olivier.amram@free.fr>"]
 maintainers = [

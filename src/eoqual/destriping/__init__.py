@@ -21,7 +21,7 @@ Aucune méthode ne charge de dépendance lourde à l'import de ce paquet —
 l'audit des licences.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __title__ = "eoqual.destriping"
 __description__ = "Collection of Earth observation image destriping methods"
 __url__ = "https://github.com/EOQual/eoqual-destriping"
