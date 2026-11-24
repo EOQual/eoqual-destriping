@@ -2,6 +2,15 @@
 
 ## Version History
 
+Non publié
+
+:   -   Documentation réorganisée : documents techniques dans
+        `docs/technique/`, publiés avec l'API et les notes de version
+        par Sphinx et MyST (`docs/`). Les documents décrivent l'état
+        présent ; ce qui change d'une version à l'autre est dans ce
+        fichier, et les variantes de méthode écartées sont décrites au
+        présent dans les documents.
+
 0.1.1 (2026-11-08)
 
 :   -   Intégration continue des tests (`.github/workflows/tests.yml`).

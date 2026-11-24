@@ -4,7 +4,7 @@
 Exemple d'utilisation — applique toutes les méthodes du socle sur une
 image synthétique à rayures verticales connues, et affiche le résultat.
 Script de démonstration, PAS un test automatisé (voir
-REFERENCE_TECHNIQUE.md §5, tests/test_backends.py pour les smoke tests).
+docs/technique/reference.md §5, tests/test_backends.py pour les smoke tests).
 
 Usage
 -----

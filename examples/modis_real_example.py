@@ -9,7 +9,7 @@ voir `tests/images/NOTICE.md`). Contrairement à
 sans vérité terrain), cet exemple dispose d'une vraie référence : le
 RMSE avant/après est un indicateur quantitatif, pas seulement visuel.
 Script de démonstration, PAS un test automatisé (voir
-REFERENCE_TECHNIQUE.md §5).
+docs/technique/reference.md §5).
 
 Usage
 -----

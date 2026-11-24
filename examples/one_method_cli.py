@@ -3,7 +3,7 @@
 """
 Exemple d'utilisation (CLI) — applique une méthode de destriping sur une
 image. Script de démonstration, PAS un test automatisé (voir
-REFERENCE_TECHNIQUE.md §5).
+docs/technique/reference.md §5).
 
 Usage
 -----

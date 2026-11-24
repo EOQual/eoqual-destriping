@@ -5,7 +5,7 @@
 # eoqual-destriping
 
 Collection de méthodes de destriping d'images, pensée pour l'observation
-de la Terre — voir **[REFERENCE_TECHNIQUE.md](REFERENCE_TECHNIQUE.md)**
+de la Terre — voir **[référence technique](docs/technique/reference.md)**
 pour le détail de chaque méthode (principe, implémentation, limites,
 évolutions envisagées) et **[THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)**
 pour l'audit complet des licences du code tiers.
@@ -106,7 +106,7 @@ est indiquée — transposer l'image en entrée pour l'orientation opposée.
 | `vsnr` | verticale | `vsnr` | Modèle variationnel (VSNR), filtre de Dirac orienté — **AGPL-3.0** |
 
 Détail de chaque méthode (principe, implémentation, limites) :
-**[REFERENCE_TECHNIQUE.md](REFERENCE_TECHNIQUE.md)**.
+**[référence technique](docs/technique/reference.md)**.
 
 **Une méthode est absente de ce catalogue** (licence amont non
 identifiée) : voir

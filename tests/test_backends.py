@@ -4,7 +4,7 @@
 Smoke tests — pour chaque méthode, vérifie que l'appel sur une image
 synthétique striée ne lève pas d'exception et renvoie une image de même
 forme. Ce ne sont PAS des tests de qualité numérique (pas d'assertion sur
-le niveau de résiduel de rayure) — voir REFERENCE_TECHNIQUE.md §5.
+le niveau de résiduel de rayure) — voir docs/technique/reference.md §5.
 
 Les méthodes dont une dépendance (socle ou extra) n'est pas installée
 sont marquées ``skip`` plutôt qu'échouées (``pytest.importorskip``).
